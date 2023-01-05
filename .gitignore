@@ -1,0 +1,11 @@
+ehthumbs.db
+Thumbs.db
+.DS_Store
+.idea
+*.sublime*
+build/
+node_modules/
+npm-debug.log*
+Thumbs.db
+.vscode/
+temp/
