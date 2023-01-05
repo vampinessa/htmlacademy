@@ -1,0 +1,2 @@
+# htmlacademy
+for study projects
