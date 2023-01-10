@@ -1,4 +1,4 @@
-import { MESSAGES, NAMES, TITLES, COMMEMTS_ID } from './mock.js';
+import { MESSAGES, NAMES, TITLES, likes, idScore, avatarsId, COMMEMTS_ID } from './mock.js';
 import { getRandomInt, getUrl } from './util.js';
 
 const getId = (idlist, min, max) => {
@@ -14,7 +14,7 @@ const getMessage = (commentsList) => commentsList[getRandomInt(0, commentsList.l
 
 const createComment = () => ({
   id: getId(COMMEMTS_ID, idScore.MIN, idScore.MAX),
-  avatar: getUrl('avatar', getRandomInt(AvatarsId.MIN, AvatarsId.MAX)),
+  avatar: getUrl('avatar', getRandomInt(avatarsId.MIN, avatarsId.MAX)),
   message: getMessage(MESSAGES),
   name: NAMES[getRandomInt(0, NAMES.length - 1)],
 });
@@ -37,7 +37,7 @@ const createPost = (intId) => ({
   id: intId,
   url: getUrl('photo', intId),
   description: TITLES[--intId],
-  likes: getRandomInt(Likes.MIN, Likes.MAX),
+  likes: getRandomInt(likes.MIN, likes.MAX),
   comments: setComments(),
 });
 
