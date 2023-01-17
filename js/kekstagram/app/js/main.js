@@ -1,4 +1,4 @@
-import { postsSum } from './mock';
-import { generateMockPosts } from './generate-mock-data';
+import { postsSum } from './mock.js';
+import { generateMockPosts } from './generate-mock-data.js';
 
 generateMockPosts(postsSum);

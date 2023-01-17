@@ -13,4 +13,6 @@ const getUrl = (type, number) => {
   return `photos/${  number  }.jpg`;
 };
 
-export { getPositiveInt, getRandomInt, getUrl };
+const isStringLength = (string, length) => (string.length < length);
+
+export { getPositiveInt, getRandomInt, getUrl, isStringLength };
