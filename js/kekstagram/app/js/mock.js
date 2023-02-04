@@ -80,6 +80,6 @@ const avatarsId = { MIN: 1, MAX: 6 };
 
 const COMMEMTS_ID = [];
 
-const postsSum = 25;
+const postsSum = 19;
 
 export { MESSAGES, NAMES, TITLES, likes, idScore, avatarsId, COMMEMTS_ID, postsSum };
