@@ -1,12 +1,16 @@
 import { generateMockPosts } from './generate-mock-data.js';
 import { postsSum } from './mock.js';
-
+import { renderBigPic } from './fullview.js';
 const previewTemplate = document.querySelector('#picture').content;
-const prewiewNewTemplate = previewTemplate.querySelector('.picture');
+const previewPic = previewTemplate.querySelector('.picture');
 const picturesContainer = document.querySelector('.pictures');
 
+const openBigPic = (post) => {
+  renderBigPic(post);
+};
+
 const getPreviewTemplate = (post) => {
-  const preview = prewiewNewTemplate.cloneNode(true);
+  const preview = previewPic.cloneNode(true);
   preview.querySelector('.picture__img').src = post.url;
   preview.querySelector('.picture__img').alt = post.description;
   preview.querySelector('.picture__likes').textContent = post.likes;
@@ -16,6 +20,10 @@ const getPreviewTemplate = (post) => {
     numCommemts = (post.comments).length;
   }
   preview.querySelector('.picture__comments').textContent = numCommemts;
+  preview.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    openBigPic(post);
+  });
   return preview;
 };
 
@@ -27,5 +35,6 @@ const displayPostPreview = () => {
   });
   picturesContainer.appendChild(previewTemplateFragment);
 };
+
 
 export { displayPostPreview };
