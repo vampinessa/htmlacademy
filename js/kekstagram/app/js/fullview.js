@@ -2,6 +2,10 @@ const bigPic = document.querySelector('.big-picture');
 const bigPicSocial = bigPic.querySelector('.big-picture__social');
 const commentsList =  bigPicSocial.querySelector('.social__comments');
 
+const closeBigPic = () => {
+  bigPic.classList.add('hidden');
+};
+
 const getCommentTemplate = (comment) => {
   const newComment = commentsList.querySelector('.social__comment').cloneNode(true);
   newComment.querySelector('.social__picture').src = comment.avatar;
@@ -29,7 +33,6 @@ const renderBigPic = (post) => {
   const bigPicUrl = bigPic.querySelector('.big-picture__img').querySelector('img');
   const bigPicCaption = bigPicSocial.querySelector('.social__caption');
   const bigPicLikes = bigPicSocial.querySelector('.likes-count');
-
   bigPic.classList.remove('hidden');
   bigPicUrl.src = post.url;
   bigPicUrl.alt = post.alt;
@@ -37,6 +40,13 @@ const renderBigPic = (post) => {
   bigPicLikes.textContent = post.likes;
   bigPicSocial.replaceChild(getCommentsListTemplate(post.comments), commentsList);
   bigPic.querySelector('.social__comments-loader').classList.add('hidden');
+
+  const closeButton = bigPic.querySelector('.big-picture__cancel');
+
+  closeButton.addEventListener('click', (evt)=> {
+    evt.preventDefault();
+    closeBigPic();
+  });
 };
 
-export { renderBigPic };
+export { bigPic, renderBigPic };

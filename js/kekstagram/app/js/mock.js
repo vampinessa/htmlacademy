@@ -75,7 +75,7 @@ const TITLES = [
 ];
 
 const likes = { MIN: 0, MAX: 100 };
-const idScore = { MIN: 1, MAX: 100 };
+const idScore = { MIN: 1, MAX: 10000 };
 const avatarsId = { MIN: 1, MAX: 6 };
 
 const COMMEMTS_ID = [];
