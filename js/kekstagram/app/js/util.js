@@ -15,4 +15,8 @@ const getUrl = (type, number) => {
 
 const isStringLength = (string, length) => (string.length < length);
 
-export { getPositiveInt, getRandomInt, getUrl, isStringLength };
+const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
+
+const isEnterEvent = (evt) => evt.key === 'Enter';
+
+export { getPositiveInt, getRandomInt, getUrl, isStringLength, isEnterEvent, isEscEvent };

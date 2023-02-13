@@ -1,6 +1,8 @@
 import { generateMockPosts } from './generate-mock-data.js';
 import { postsSum } from './mock.js';
 import { renderBigPic } from './fullview.js';
+import { onBigPicEscKeydown } from './main.js';
+
 const previewTemplate = document.querySelector('#picture').content;
 const previewPic = previewTemplate.querySelector('.picture');
 const picturesContainer = document.querySelector('.pictures');
@@ -23,6 +25,7 @@ const getPreviewTemplate = (post) => {
   preview.addEventListener('click', (evt) => {
     evt.preventDefault();
     openBigPic(post);
+    document.addEventListener('keydown', onBigPicEscKeydown);
   });
   return preview;
 };
@@ -35,6 +38,5 @@ const displayPostPreview = () => {
   });
   picturesContainer.appendChild(previewTemplateFragment);
 };
-
 
 export { displayPostPreview };
