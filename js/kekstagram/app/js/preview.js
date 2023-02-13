@@ -1,18 +1,18 @@
 import { generateMockPosts } from './generate-mock-data.js';
 import { postsSum } from './mock.js';
-import { renderBigPic } from './fullview.js';
-import { onBigPicEscKeydown } from './main.js';
+import { renderBigPic , bigPic} from './fullview.js';
+import { onBigPicEscKeydown, onPreviewEnterKeydown } from './keydown.js';
 
 const previewTemplate = document.querySelector('#picture').content;
-const previewPic = previewTemplate.querySelector('.picture');
-const picturesContainer = document.querySelector('.pictures');
 
 const openBigPic = (post) => {
+  bigPic.classList.remove('hidden');
   renderBigPic(post);
+  document.removeEventListener('keydown', onPreviewEnterKeydown);
 };
 
 const getPreviewTemplate = (post) => {
-  const preview = previewPic.cloneNode(true);
+  const preview = previewTemplate.querySelector('.picture').cloneNode(true);
   preview.querySelector('.picture__img').src = post.url;
   preview.querySelector('.picture__img').alt = post.description;
   preview.querySelector('.picture__likes').textContent = post.likes;
@@ -26,6 +26,7 @@ const getPreviewTemplate = (post) => {
     evt.preventDefault();
     openBigPic(post);
     document.addEventListener('keydown', onBigPicEscKeydown);
+    document.addEventListener('keydown', onPreviewEnterKeydown(post));
   });
   return preview;
 };
@@ -36,7 +37,8 @@ const displayPostPreview = () => {
   posts.forEach((post) => {
     previewTemplateFragment.appendChild(getPreviewTemplate(post));
   });
-  picturesContainer.appendChild(previewTemplateFragment);
+  document.querySelector('.pictures').appendChild(previewTemplateFragment);
 };
 
-export { displayPostPreview };
+export { displayPostPreview , openBigPic};
+
