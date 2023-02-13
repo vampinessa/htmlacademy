@@ -1,12 +1,13 @@
 import { generateMockPosts } from './generate-mock-data.js';
 import { postsSum } from './mock.js';
-import { renderBigPic , bigPic} from './fullview.js';
+import { renderBigPic , bigPic } from './fullview.js';
 import { onBigPicEscKeydown, onPreviewEnterKeydown } from './keydown.js';
 
 const previewTemplate = document.querySelector('#picture').content;
 
 const openBigPic = (post) => {
   bigPic.classList.remove('hidden');
+  document.querySelector('body').classList.add('modal-open');
   renderBigPic(post);
   document.removeEventListener('keydown', onPreviewEnterKeydown);
 };

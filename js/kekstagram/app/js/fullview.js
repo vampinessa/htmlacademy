@@ -2,6 +2,7 @@ const bigPic = document.querySelector('.big-picture');
 
 const closeBigPic = () => {
   bigPic.classList.add('hidden');
+  document.querySelector('body').classList.remove('modal-open');
 };
 
 const setupCloseButton = () => {
