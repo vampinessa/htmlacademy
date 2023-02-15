@@ -1,15 +1,15 @@
 import { generateMockPosts } from './generate-mock-data.js';
 import { postsSum } from './mock.js';
 import { renderBigPic , bigPic } from './fullview.js';
-import { onBigPicEscKeydown, onPreviewEnterKeydown } from './keydown.js';
+import { onPreviewEnterKeydown } from './fullveiw-modal.js';
 
 const previewTemplate = document.querySelector('#picture').content;
 
 const openBigPic = (post) => {
-  bigPic.classList.remove('hidden');
+  document.removeEventListener('keydown', onPreviewEnterKeydown);
   document.querySelector('body').classList.add('modal-open');
   renderBigPic(post);
-  document.removeEventListener('keydown', onPreviewEnterKeydown);
+  bigPic.classList.remove('hidden');
 };
 
 const getPreviewTemplate = (post) => {
@@ -26,9 +26,9 @@ const getPreviewTemplate = (post) => {
   preview.addEventListener('click', (evt) => {
     evt.preventDefault();
     openBigPic(post);
-    document.addEventListener('keydown', onBigPicEscKeydown);
-    document.addEventListener('keydown', onPreviewEnterKeydown(post));
   });
+
+  document.addEventListener('keydown', onPreviewEnterKeydown(post));
   return preview;
 };
 
