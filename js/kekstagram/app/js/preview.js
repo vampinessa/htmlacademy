@@ -1,7 +1,5 @@
-import { generateMockPosts } from './generate-mock-data.js';
-import { postsSum } from './mock.js';
 import { renderBigPic , bigPic } from './fullview.js';
-import { onPreviewEnterKeydown } from './fullveiw-modal.js';
+import { onPreviewEnterKeydown } from './modal.js';
 
 const previewTemplate = document.querySelector('#picture').content;
 
@@ -32,8 +30,7 @@ const getPreviewTemplate = (post) => {
   return preview;
 };
 
-const displayPostPreview = () => {
-  const posts = generateMockPosts(postsSum);
+const displayPostPreview = (posts) => {
   const previewTemplateFragment = document.createDocumentFragment();
   posts.forEach((post) => {
     previewTemplateFragment.appendChild(getPreviewTemplate(post));
@@ -42,4 +39,3 @@ const displayPostPreview = () => {
 };
 
 export { displayPostPreview , openBigPic};
-

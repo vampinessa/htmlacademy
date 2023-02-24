@@ -1,3 +1,3 @@
-import { displayPostPreview } from './preview.js';
+import { renderIndexPage } from './render-index.js';
 
-displayPostPreview();
+renderIndexPage();

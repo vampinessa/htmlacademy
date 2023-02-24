@@ -1,4 +1,4 @@
-import { onBigPicEscKeydown, onBigPicCloseClick } from './fullveiw-modal.js';
+import { onBigPicEscKeydown, onBigPicCloseClick } from './modal.js';
 const bigPic = document.querySelector('.big-picture');
 const commentsList  =  bigPic.querySelector('.big-picture__social').querySelector('.social__comments');
 
