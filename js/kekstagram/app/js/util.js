@@ -19,4 +19,13 @@ const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
 const isEnterEvent = (evt) => evt.key === 'Enter';
 
-export { getPositiveInt, getRandomInt, getUrl, isStringLength, isEnterEvent, isEscEvent };
+const deleteClass = (element, elentClass) => {
+  const classes = element.className.split(/\s+/);
+  for (const c of classes) {
+    if (c.includes(elentClass)) {
+      element.classList.remove(c);
+    }
+  }
+};
+
+export { getPositiveInt, getRandomInt, getUrl, isStringLength, isEnterEvent, isEscEvent, deleteClass};
