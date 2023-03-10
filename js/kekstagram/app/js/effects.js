@@ -42,18 +42,17 @@ const  onEffectClick = (evt) => {
   const classNamePrefix = 'effects__preview--';
   deleteClass(imgPreview, classNamePrefix);
   const currentEffect = (evt.target).value;
-  if (currentEffect) {
-    effect = currentEffect;
-    const effectOptions = Effects[effect];
-    if (effectOptions) {
-      imgPreview.classList.add(classNamePrefix + currentEffect);
-      imgPreview.style.filter =  effectOptions.PROPERTY(effectOptions.MAX);
-      updateSlider(effectOptions.MIN, effectOptions.MAX, effectOptions.STEP, effectOptions.MAX);
-      onEffectLevelSliderUpdate(effect);
-      effectLevel.classList.remove('hidden');
-    } else {
-      effectLevel.classList.add('hidden');
-      imgPreview.style.filter =  'none';
-    }}
+  effect = currentEffect;
+  const effectOptions = Effects[effect];
+  if (effectOptions) {
+    imgPreview.classList.add(classNamePrefix + currentEffect);
+    imgPreview.style.filter =  effectOptions.PROPERTY(effectOptions.MAX);
+    updateSlider(effectOptions.MIN, effectOptions.MAX, effectOptions.STEP, effectOptions.MAX);
+    onEffectLevelSliderUpdate(effect);
+    effectLevel.classList.remove('hidden');
+  } else {
+    effectLevel.classList.add('hidden');
+    imgPreview.style.filter =  'none';
+  }
 };
 export { onEffectClick };
