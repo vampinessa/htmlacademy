@@ -10,15 +10,16 @@ const imgScale = editImg.querySelector('.scale__control--value');
 const canselUploadButton = editImg.querySelector('#upload-cancel');
 const decreaseButton = editImg.querySelector('.scale__control--smaller');
 const increaseButton = editImg.querySelector('.scale__control--bigger');
-const effects = editImg.querySelector('.effects__list');
+const effectList = editImg.querySelector('.effects__list');
 
 const openImgPreview = () => {
+  editImg.querySelector('.img-upload__effect-level').classList.add('hidden');
   document.querySelector('body').classList.add('modal-open');
   canselUploadButton.addEventListener('click', onCanselImgButtonClick);
   document.addEventListener('keydown', onImgUploadEscKeydown);
   decreaseButton.addEventListener('click', onDecreaseButtonClick);
   increaseButton.addEventListener('click', onIncreaseButtonClick);
-  effects.addEventListener('click', onEffectClick);
+  effectList.addEventListener('click', onEffectClick);
   editImg.classList.remove('hidden');
 };
 
@@ -29,7 +30,7 @@ const closeImgPreview = () => {
   increaseButton.removeEventListener('click', onIncreaseButtonClick);
   canselUploadButton.removeEventListener('click', onCanselImgButtonClick);
   document.removeEventListener('keydown', onImgUploadEscKeydown);
-  effects.removeEventListener('click', onEffectClick);
+  effectList.removeEventListener('click', onEffectClick);
   editImg.classList.add('hidden');
 };
 
@@ -38,4 +39,4 @@ const getEditImgForm = () => {
   onImgUploadEnterKeydown();
 };
 
-export { imgUpload, editImg, imgScale, effects, openImgPreview, closeImgPreview, getEditImgForm };
+export { imgUpload, editImg, imgScale, effectList, openImgPreview, closeImgPreview, getEditImgForm };
