@@ -49,7 +49,6 @@ const  onEffectClick = (evt) => {
   const effectLevel = editImg.querySelector('.img-upload__effect-level');
   let effect = '';
   effectLevel.querySelector('.effect-level__value').value = '';
-  effectLevel.classList.add('hidden');
   const classNamePrefix = 'effects__preview--';
   deleteClass(imgPreview, classNamePrefix);
   const currentEffect = (evt.target).value;

@@ -2,6 +2,7 @@ import { onCanselImgButtonClick, onImgUploadEscKeydown } from './modal.js';
 import { onDecreaseButtonClick, onIncreaseButtonClick } from './img-scale.js';
 import { onImgUploadClick, onImgUploadEnterKeydown } from './modal.js';
 import { onEffectClick } from './effects.js';
+import { validateHashtagInput, validateForm } from './validators.js';
 
 const uploadImgForm = document.querySelector('.img-upload__form');
 const imgUpload = uploadImgForm.querySelector('.img-upload__start');
@@ -11,6 +12,8 @@ const canselUploadButton = editImg.querySelector('#upload-cancel');
 const decreaseButton = editImg.querySelector('.scale__control--smaller');
 const increaseButton = editImg.querySelector('.scale__control--bigger');
 const effectList = editImg.querySelectorAll('.effects__radio');
+const submitUploadButton = uploadImgForm.querySelector('.img-upload__submit');
+const hashtagInput = editImg.querySelector('.text__hashtags');
 
 const openImgPreview = () => {
   editImg.querySelector('.img-upload__effect-level').classList.add('hidden');
@@ -22,6 +25,8 @@ const openImgPreview = () => {
   effectList.forEach((item) => {
     item.addEventListener('click', onEffectClick);
   });
+  hashtagInput.addEventListener('input', validateHashtagInput);
+  submitUploadButton.addEventListener('click', validateForm);
   editImg.classList.remove('hidden');
 };
 
@@ -36,6 +41,8 @@ const closeImgPreview = () => {
   effectList.forEach((item) => {
     item.removeEventListener('click', onEffectClick);
   });
+  hashtagInput.removeEventListener('input', validateHashtagInput);
+  submitUploadButton.removeEventListener('click', validateForm);
 };
 
 const getEditImgForm = () => {
@@ -43,4 +50,4 @@ const getEditImgForm = () => {
   onImgUploadEnterKeydown();
 };
 
-export { imgUpload, editImg, imgScale, effectList, openImgPreview, closeImgPreview, getEditImgForm };
+export { imgUpload, editImg, imgScale, effectList, hashtagInput, openImgPreview, closeImgPreview, getEditImgForm };

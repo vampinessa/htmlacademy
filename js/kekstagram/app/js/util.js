@@ -28,4 +28,6 @@ const deleteClass = (element, elentClass) => {
   }
 };
 
-export { getPositiveInt, getRandomInt, getUrl, isStringLength, isEnterEvent, isEscEvent, deleteClass};
+const isAphabetAndNumber = (string) => (/^[a-zA-Z0-9А-Яа-я]+$/.test(string));
+
+export { getPositiveInt, getRandomInt, getUrl, isStringLength, isEnterEvent, isEscEvent, deleteClass, isAphabetAndNumber};
