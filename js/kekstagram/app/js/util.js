@@ -30,4 +30,9 @@ const deleteClass = (element, elentClass) => {
 
 const isAphabetAndNumber = (string) => (/^[a-zA-Z0-9А-Яа-я]+$/.test(string));
 
-export { getPositiveInt, getRandomInt, getUrl, isStringLength, isEnterEvent, isEscEvent, deleteClass, isAphabetAndNumber};
+const findDuplicates = (arr) => {
+  const filtered = arr.filter((item, index) => arr.indexOf(item) !== index);
+  return [...new Set(filtered)];
+};
+
+export { getPositiveInt, getRandomInt, getUrl, isStringLength, isEnterEvent, isEscEvent, deleteClass, isAphabetAndNumber, findDuplicates, };
