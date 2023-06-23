@@ -29,4 +29,19 @@ const Effects = {
   },
 };
 
-export { DefaultSliderValue, Effects };
+const DESCRIPTION_LENGTH = 141;
+
+const POST_QUANTITY = 25;
+
+const Keys = {
+  ESCAPE: 'Escape',
+  ESC: 'Esc',
+  ENTER: 'Enter',
+};
+
+const ImgType = {
+  AVATAR: 'avatar',
+  PHOTO: 'photo',
+};
+
+export { DefaultSliderValue, Effects, DESCRIPTION_LENGTH, POST_QUANTITY, Keys, ImgType };

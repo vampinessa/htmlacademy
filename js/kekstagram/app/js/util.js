@@ -1,3 +1,5 @@
+import { Keys, ImgType } from './constants.js';
+
 const getPositiveInt = (num) => Math.trunc(Math.abs(num));
 
 const getRandomInt = (num1, num2) => {
@@ -7,17 +9,17 @@ const getRandomInt = (num1, num2) => {
 };
 
 const getUrl = (type, number) => {
-  if (type === 'avatar') {
-    return `img/avatar-${  number  }.svg`;
+  if (type === ImgType.AVATAR) {
+    return `img/avatar-${number}.svg`;
   }
-  return `photos/${  number  }.jpg`;
+  return `photos/${number}.jpg`;
 };
 
 const isStringLength = (string, length) => (string.length < length);
 
-const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
+const isEscEvent = (evt) => evt.key === Keys.ESCAPE || evt.key === Keys.ESC;
 
-const isEnterEvent = (evt) => evt.key === 'Enter';
+const isEnterEvent = (evt) => evt.key === Keys.ENTER;
 
 const deleteClass = (element, elentClass) => {
   const classes = element.className.split(/\s+/);
