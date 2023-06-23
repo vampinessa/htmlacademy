@@ -1,5 +1,7 @@
 import { isStringLength, isAphabetAndNumber, findDuplicates } from './util.js';
-import { hashtagInput } from './edit-img.js';
+import { hashtagInput, descriptionInput, descriptionTextCount } from './edit-img.js';
+import { DESCRIPTION_LENGTH } from './constants.js';
+// import { onDescriptionInputBlur } from './modal.js';
 
 const checkInvalidHashtags = (hashtagsArray) => {
   let messages = '';
@@ -73,8 +75,23 @@ const validateHashtags = () => {
   hashtagInput.reportValidity();
 };
 
-const validateForm = () => {
-  validateHashtags();
+const onDescriptionInputFocus = () => {
+  descriptionTextCount.style.display = 'block';
 };
 
-export { validateHashtagInput, validateForm };
+const onDescriptionInputBlur = () => {
+  descriptionTextCount.style.display = 'none';
+};
+
+const validateDescription = () => {
+  const currentDiscriptionLenght = DESCRIPTION_LENGTH - (descriptionInput.value).length;
+  descriptionInput.addEventListener('blur', onDescriptionInputBlur);
+  descriptionTextCount.textContent = `Осталось символов: ${currentDiscriptionLenght}`;
+  if (currentDiscriptionLenght === 0) {
+    descriptionTextCount.style.color = 'red';
+  } else {
+    descriptionTextCount.style.color = '';
+  }
+};
+
+export { validateHashtagInput, validateDescription, validateHashtags,  onDescriptionInputFocus, onDescriptionInputBlur };

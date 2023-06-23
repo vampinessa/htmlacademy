@@ -29,7 +29,7 @@ const Effects = {
   },
 };
 
-const DESCRIPTION_LENGTH = 141;
+const DESCRIPTION_LENGTH = 140;
 
 const POST_QUANTITY = 25;
 
