@@ -3,8 +3,8 @@ import { onPreviewEnterKeydown } from './modal.js';
 
 const previewTemplate = document.querySelector('#picture').content;
 
+
 const openBigPic = (post) => {
-  document.removeEventListener('keydown', onPreviewEnterKeydown);
   document.querySelector('body').classList.add('modal-open');
   renderBigPic(post);
   bigPic.classList.remove('hidden');
@@ -26,7 +26,7 @@ const getPreviewTemplate = (post) => {
     openBigPic(post);
   });
 
-  document.addEventListener('keydown', onPreviewEnterKeydown(post));
+  preview.addEventListener('keydown', onPreviewEnterKeydown(post));
   return preview;
 };
 

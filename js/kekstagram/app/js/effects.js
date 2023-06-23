@@ -62,7 +62,7 @@ const  onEffectClick = (evt) => {
     effectLevel.classList.remove('hidden');
   } else {
     effectLevel.classList.add('hidden');
-    imgPreview.style.filter =  'none';
+    imgPreview.style.filter = '';
   }
 };
 export { onEffectClick };

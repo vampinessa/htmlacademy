@@ -1,7 +1,7 @@
 import { isEscEvent, isEnterEvent } from './util.js';
 import { closeBigPic } from './fullview.js';
 import { openBigPic } from './preview.js';
-import { imgUpload, openImgPreview, closeImgPreview } from './edit-img.js';
+import { closeImgPreview, hashtagInput } from './edit-img.js';
 
 const onPreviewEnterKeydown = (evt) => {
   if (isEnterEvent(evt)) {
@@ -22,22 +22,6 @@ const onBigPicCloseClick = (evt) => {
   closeBigPic();
 };
 
-const onImgUploadClick = () => {
-  imgUpload.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    openImgPreview();
-  });
-};
-
-const onImgUploadEnterKeydown = () => {
-  imgUpload.addEventListener('keydown', (evt) => {
-    if (isEnterEvent(evt)) {
-      evt.preventDefault();
-      openImgPreview();
-    }
-  });
-};
-
 const onCanselImgButtonClick = (evt) => {
   evt.preventDefault();
   closeImgPreview();
@@ -50,4 +34,20 @@ const onImgUploadEscKeydown = (evt) => {
   }
 };
 
-export { onPreviewEnterKeydown, onBigPicEscKeydown, onBigPicCloseClick, onImgUploadClick, onImgUploadEnterKeydown, onCanselImgButtonClick, onImgUploadEscKeydown };
+const onHashtagKeydown = (evt) => {
+  if (isEnterEvent(evt)) {
+    evt.preventDefault();
+    (hashtagInput.nextElementSibling).focus();
+  }
+  if (isEscEvent(evt)) {
+    evt.stopPropagation();
+  }
+};
+
+const onDescriptionKeydown = (evt) => {
+  if (isEscEvent(evt)) {
+    evt.stopPropagation();
+  }
+};
+
+export { onPreviewEnterKeydown, onBigPicEscKeydown, onBigPicCloseClick, onCanselImgButtonClick, onImgUploadEscKeydown, onDescriptionKeydown, onHashtagKeydown };

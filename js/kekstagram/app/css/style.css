@@ -1416,3 +1416,16 @@ main {
 .hidden {
   display: none;
 }
+
+input:invalid, textarea:invalid {
+  background-color: ivory;
+  border: none;
+  outline: 2px solid red;
+}
+
+.text-description__count {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
